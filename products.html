@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products - Kids City</title><link rel="icon" href="download.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Fraunces:wght@600;700&amp;display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mint: '#b8f0d8',
+                        'mint-light': '#e4faf0',
+                        yellow: '#fef3c7',
+                        'yellow-soft': '#fefce8',
+                        sky: '#bae6fd',
+                        'sky-light': '#e0f2fe',
+                        coral: '#fb923c',
+                        'mint-dark': '#1e3a2f',
+                        'mint-brand': '#1e7a5a'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'DM Sans', sans-serif; }
+        .heading-font { font-family: 'Fraunces', serif; }
+        body.modal-open { overflow: hidden; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+</head>
+
+<body data-template-id="__page-root" class="w-full min-h-screen bg-yellow-soft">
+    <header class="w-full px-6 py-4 flex items-center justify-between max-w-7xl mx-auto">
+        <a href="index.html"> <img src="download.png" alt="Kids City Logo" class="h-16 w-auto"> </a>
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex gap-8">
+            <a href="index.html#featured" class="canva-link font-medium cursor-pointer text-gray-700 hover:text-mint-brand transition-colors">New Arrivals</a>
+            <a href="index.html#featured" class="canva-link font-medium cursor-pointer text-gray-700 hover:text-mint-brand transition-colors">Sale</a>
+            <a href="index.html#footer" class="canva-link font-medium cursor-pointer text-gray-700 hover:text-mint-brand transition-colors">About Us</a>
+        </nav>
+        <!-- Mobile Nav Toggler & Cart -->
+        <div class="flex items-center gap-4">
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden">
+                <i data-lucide="menu" class="text-gray-700"></i>
+            </button>
+            <div id="cart-container" class="relative">
+                <button id="cart-icon-btn" class="relative">
+                    <i data-lucide="shopping-cart" class="text-gray-700"></i>
+                    <span id="cart-badge" class="absolute -top-2 -right-2 bg-coral text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                </button>
+                <!-- Cart Dropdown -->
+                <div id="cart-dropdown" class="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-xl z-50 hidden p-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="font-bold text-lg text-mint-dark">Your Cart</h4>
+                        <button id="clear-cart-btn" class="text-xs text-gray-500 hover:text-red-500 transition-colors hidden">Clear All</button>
+                    </div>
+                    <div id="cart-items-container" class="divide-y divide-gray-200 max-h-64 overflow-y-auto">
+                        <!-- Cart items will be injected here by JavaScript -->
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <div class="flex justify-between font-bold"><span class="text-gray-600">Subtotal:</span> <span id="cart-subtotal" class="text-mint-dark">Rs:0</span></div><a href="checkout.html" class="block text-center w-full bg-coral text-white py-2 px-4 rounded-full font-semibold mt-4 hover:bg-opacity-90 transition-colors">Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-white z-40 hidden md:hidden">
+        <div class="flex flex-col p-6">
+            <div class="flex justify-end mb-8">
+                <button id="mobile-menu-close-btn"><i data-lucide="x" class="w-8 h-8 text-gray-700"></i></button>
+            </div>
+            <nav class="flex flex-col items-center gap-8">
+                <a href="index.html#featured" class="canva-link text-2xl font-medium cursor-pointer text-gray-700 hover:text-mint-brand transition-colors">New Arrivals</a>
+                <a href="index.html#featured" class="canva-link text-2xl font-medium cursor-pointer text-gray-700 hover:text-mint-brand transition-colors">Sale</a>
+                <a href="index.html#footer" class="canva-link text-2xl font-medium cursor-pointer text-gray-700 hover:text-mint-brand transition-colors">About Us</a>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+        <section class="max-w-7xl mx-auto px-6 py-12">
+            <h1 class="canva-text heading-font text-4xl md:text-5xl font-bold text-center mb-12 text-mint-dark">All Our Products</h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product Card 1 -->
+                <div data-template-id="product-1" data-category="clothing" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-1-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="abc 1.png" alt="Stylish kids outfit">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-1-name" class="font-semibold text-lg text-mint-dark">fabric jersey best anime goku suit</h3>
+                        <p data-template-id="product-1-info" class="text-sm text-gray-600 mt-1">3to1year</p>
+                        <p data-template-id="product-1-price" class="font-bold text-mint-brand text-lg mt-2">Rs:750</p>
+                    </div>
+                </div>
+                <!-- Product Card 2 -->
+                <div data-template-id="product-2" data-category="clothing" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-2-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="moye moye lither orang.jpg" alt="Moye Moye Orange Suit">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-2-name" class="font-semibold text-lg text-mint-dark">Moye Moye Jersey Suit</h3>
+                        <p data-template-id="product-2-info" class="text-sm text-gray-600 mt-1">Fabric: Jersey, Size: 5 Year, Color: Red</p>
+                        <p data-template-id="product-2-price" class="font-bold text-mint-brand text-lg mt-2">Rs:600</p>
+                    </div>
+                </div>
+                <!-- Product Card 3 -->
+                <div data-template-id="product-3" data-category="clothing" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-3-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="moye moye lither blue .png" alt="Moye Moye Blue Suit">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-3-name" class="font-semibold text-lg text-mint-dark">Moye Moye Jersey Suit</h3>
+                        <p data-template-id="product-3-info" class="text-sm text-gray-600 mt-1">Fabric: Jersey, Size: 2 Year, Color: Orange</p>
+                        <p data-template-id="product-3-price" class="font-bold text-mint-brand text-lg mt-2">Rs:600</p>
+                    </div>
+                </div>
+                <!-- Product Card 5 -->
+                <div data-template-id="product-5" data-category="clothing" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative"><img data-template-id="product-5-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="y moye .png" alt="Moye Moye Dark Suit">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-5-name" class="font-semibold text-lg text-mint-dark">Moye Moye Jersey Suit</h3>
+                        <p data-template-id="product-5-info" class="text-sm text-gray-600 mt-1">Fabric: Jersey, Size: 2 Year, Dark Color</p>
+                        <p data-template-id="product-5-price" class="font-bold text-mint-brand text-lg mt-2">Rs:600</p>
+                    </div>
+                </div>
+                <!-- Product Card 6 -->
+                <div data-template-id="product-6" data-category="clothing" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative"><img data-template-id="product-6-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="l b moye.png" alt="Moye Moye Suit">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-6-name" class="font-semibold text-lg text-mint-dark">Moye Moye Jersey Suit</h3>
+                        <p data-template-id="product-6-info" class="text-sm text-gray-600 mt-1">Fabric: Jersey, Multiple Sizes</p>
+                        <p data-template-id="product-6-price" class="font-bold text-mint-brand text-lg mt-2">Rs:600</p>
+                    </div>
+                </div>
+                <!-- Product Card 7 -->
+                <div data-template-id="product-7" data-category="clothing" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative"><img data-template-id="product-7-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="moye moye red.jpeg" alt="Moye Moye Red Suit">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button></div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-7-name" class="font-semibold text-lg text-mint-dark">Moye Moye Jersey Suit</h3>
+                        <p data-template-id="product-7-info" class="text-sm text-gray-600 mt-1">Fabric: Jersey, Multiple Colors</p>
+                        <p data-template-id="product-7-price" class="font-bold text-mint-brand text-lg mt-2">Rs:600</p>
+                    </div>
+                </div>
+                <!-- Product Card 9 -->
+                <div data-template-id="product-9" data-category="clothing" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-9-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="colour full flower 1.5 to1 year .jpeg" alt="Colour Full Flower Suit">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-9-name" class="font-semibold text-lg text-mint-dark">Colour Full Flower Suit</h3>
+                        <p data-template-id="product-9-info" class="text-sm text-gray-600 mt-1">Size: 1 Year</p>
+                        <p data-template-id="product-9-price" class="font-bold text-mint-brand text-lg mt-2">Rs:900</p>
+                    </div>
+                </div>
+                <!-- Product Card 10 -->
+                <div data-template-id="product-10" data-category="clothing" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-10-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="flower brown 3year.jpeg" alt="Fabric Cotton Flower Suit">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-10-name" class="font-semibold text-lg text-mint-dark">fabric cotton lawn flower suit</h3>
+                        <p data-template-id="product-10-info" class="text-sm text-gray-600 mt-1">Size: 3 Year</p>
+                        <p data-template-id="product-10-price" class="font-bold text-mint-brand text-lg mt-2">Rs:600</p>
+                    </div>
+                </div>
+                <!-- Product Card 11 -->
+                <div data-template-id="product-11" data-category="clothing" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-11-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="pink suit 2.5 to 2year.jpeg" alt="Pink Suit">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-11-name" class="font-semibold text-lg text-mint-dark">Pink Suit</h3>
+                        <p data-template-id="product-11-info" class="text-sm text-gray-600 mt-1">Size: 2 Year, Fabric: Cotton</p>
+                        <p data-template-id="product-11-price" class="font-bold text-mint-brand text-lg mt-2">Rs:700</p>
+                    </div>
+                </div>
+                <!-- Product Card 12 -->
+                <div data-template-id="product-12" data-category="clothing" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-12-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="pink pum suit 2year.jpeg" alt="Pink Pum Suit">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-12-name" class="font-semibold text-lg text-mint-dark">Pink Pum Suit</h3>
+                        <p data-template-id="product-12-info" class="text-sm text-gray-600 mt-1">Size: 2 Year, Fabric: Cotton</p>
+                        <p data-template-id="product-12-price" class="font-bold text-mint-brand text-lg mt-2">Rs:700</p>
+                    </div>
+                </div>
+                <!-- Product Card 13 -->
+                <div data-template-id="product-13" data-category="clothing" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-13-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="red flower 4year,6year,7year.jpeg" alt="Red Flower Polyester Suit">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-13-name" class="font-semibold text-lg text-mint-dark">Red Flower Polyester Suit</h3>
+                        <p data-template-id="product-13-info" class="text-sm text-gray-600 mt-1">3 Sizes: 4, 6, 7 Year. Fabric: Polyester</p>
+                        <p data-template-id="product-13-price" class="font-bold text-mint-brand text-lg mt-2">Rs:600</p>
+                    </div>
+                </div>
+                <!-- Product Card PK-1 -->
+                <div data-template-id="product-pk-1" data-category="independence-day" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-pk-1-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="cap.jpg" alt="I Love Pakistan Cap">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-pk-1-name" class="font-semibold text-lg text-mint-dark">I Love Pakistan Cap</h3>
+                        <p data-template-id="product-pk-1-info" class="text-sm text-gray-600 mt-1">Festive cap for kids</p>
+                        <p data-template-id="product-pk-1-price" class="font-bold text-mint-brand text-lg mt-2">Rs:100 <span class="text-sm font-normal text-gray-500 line-through ml-2">Rs:120</span></p>
+                    </div>
+                </div>
+                <!-- Product Card PK-2 -->
+                <div data-template-id="product-pk-2" data-category="independence-day" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-pk-2-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="clips.jpg" alt="Patriotic Hair Clips">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-pk-2-name" class="font-semibold text-lg text-mint-dark">independence day Hair Clips</h3>
+                        <p data-template-id="product-pk-2-info" class="text-sm text-gray-600 mt-1">Green &amp; white themed hair accessories</p>
+                        <p data-template-id="product-pk-2-price" class="font-bold text-mint-brand text-lg mt-2">Rs:150 <span class="text-sm font-normal text-gray-500 line-through ml-2">Rs:160</span></p>
+                    </div>
+                </div>
+                <!-- Product Card PK-3 -->
+                <div data-template-id="product-pk-3" data-category="independence-day" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-pk-3-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="face mask.jpg" alt="Pakistan Flag Face Mask">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-pk-3-name" class="font-semibold text-lg text-mint-dark">Pakistan Flag Face Mask</h3>
+                        <p data-template-id="product-pk-3-info" class="text-sm text-gray-600 mt-1">Reusable fabric mask</p>
+                        <p data-template-id="product-pk-3-price" class="font-bold text-mint-brand text-lg mt-2">Rs:100 <span class="text-sm font-normal text-gray-500 line-through ml-2">Rs:120</span></p>
+                    </div>
+                </div>
+                <!-- Product Card PK-4 -->
+                <div data-template-id="product-pk-4" data-category="independence-day" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-pk-4-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="hair.png" alt="Azaadi Floral Headband">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-pk-4-name" class="font-semibold text-lg text-mint-dark">Azaadi Floral Headband</h3>
+                        <p data-template-id="product-pk-4-info" class="text-sm text-gray-600 mt-1">Green & white rose headband</p>
+                        <p data-template-id="product-pk-4-price" class="font-bold text-mint-brand text-lg mt-2">Rs:100 <span class="text-sm font-normal text-gray-500 line-through ml-2">Rs:120</span></p>
+                    </div>
+                </div>
+                <!-- Product Card PK-5 -->
+                <div data-template-id="product-pk-5" data-category="independence-day" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-pk-5-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="bangels set rs180.jpg" alt="Patriotic Bangles Set">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-pk-5-name" class="font-semibold text-lg text-mint-dark">independence day Bangles Set</h3>
+                        <p data-template-id="product-pk-5-info" class="text-sm text-gray-600 mt-1">Green and white bangles set</p>
+                        <p data-template-id="product-pk-5-price" class="font-bold text-mint-brand text-lg mt-2">Rs:160 <span class="text-sm font-normal text-gray-500 line-through ml-2">Rs:190</span></p>
+                    </div>
+                </div>
+                <!-- Product Card PK-6 -->
+                <div data-template-id="product-pk-6" data-category="independence-day" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-pk-6-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="batch.jpg" alt="Azaadi Heart Badges">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-pk-6-name" class="font-semibold text-lg text-mint-dark">Azaadi Heart Badges</h3>
+                        <p data-template-id="product-pk-6-info" class="text-sm text-gray-600 mt-1">Set of 12 heart-shaped badges</p>
+                        <p data-template-id="product-pk-6-price" class="font-bold text-mint-brand text-lg mt-2">Rs:80 <span class="text-sm font-normal text-gray-500 line-through ml-2">Rs:100</span></p>
+                    </div>
+                </div>
+                <!-- Product Card PK-7 -->
+                <div data-template-id="product-pk-7" data-category="independence-day" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-pk-7-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="braclet.jpg" alt="Azaadi Pom Pom Bracelet">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-pk-7-name" class="font-semibold text-lg text-mint-dark">Azaadi Pom Pom Bracelet</h3>
+                        <p data-template-id="product-pk-7-info" class="text-sm text-gray-600 mt-1">Cute bracelet for kids</p>
+                        <p data-template-id="product-pk-7-price" class="font-bold text-mint-brand text-lg mt-2">Rs:100 <span class="text-sm font-normal text-gray-500 line-through ml-2">Rs:120</span></p>
+                    </div>
+                </div>
+                <!-- Product Card PK-8 -->
+                <div data-template-id="product-pk-8" data-category="independence-day" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-pk-8-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="baja1 - Copy.jpg" alt="Independence Day Baja">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-pk-8-name" class="font-semibold text-lg text-mint-dark">Independence Day Baja</h3>
+                        <p data-template-id="product-pk-8-info" class="text-sm text-gray-600 mt-1">Festive baja for celebrations</p>
+                        <p data-template-id="product-pk-8-price" class="font-bold text-mint-brand text-lg mt-2">Rs:100 <span class="text-sm font-normal text-gray-500 line-through ml-2">Rs:120</span></p>
+                    </div>
+                </div>
+                <!-- Product Card PK-9 -->
+                <div data-template-id="product-pk-9" data-category="independence-day" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-pk-9-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="ponyhand1.jpg" alt="Patriotic Pony & Hand Band Set">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-pk-9-name" class="font-semibold text-lg text-mint-dark">Independence Day Pony & Hand Band</h3>
+                        <p data-template-id="product-pk-9-info" class="text-sm text-gray-600 mt-1">Festive accessories for Independence Day</p>
+                        <p data-template-id="product-pk-9-price" class="font-bold text-mint-brand text-lg mt-2">Rs:100 <span class="text-sm font-normal text-gray-500 line-through ml-2">Rs:120</span></p>
+                    </div>
+                </div>
+                <!-- Product Card PK-10 -->
+                <div data-template-id="product-pk-10" data-category="independence-day" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-pk-10-img" class="canva-image w-full h-64 object-cover transition-opacity duration-300 group-hover:opacity-0" loading="lazy" src="flag1.png" alt="Pakistan Flag">
+                        <img data-template-id="product-pk-10-img-hover" class="canva-image w-full h-64 object-cover absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" loading="lazy" src="flag2.png" alt="Pakistan Flag - alternate view">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-pk-10-name" class="font-semibold text-lg text-mint-dark">Pakistan Flag</h3>
+                        <p data-template-id="product-pk-10-info" class="text-sm text-gray-600 mt-1">High-quality flag for Independence Day</p>
+                        <p data-template-id="product-pk-10-price" class="font-bold text-mint-brand text-lg mt-2">Rs:100 <span class="text-sm font-normal text-gray-500 line-through ml-2">Rs:120</span></p>
+                    </div>
+                </div>
+                <!-- Product Card PK-11 -->
+                <div data-template-id="product-pk-11" data-category="independence-day" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-pk-11-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="pakistani earrings.png" alt="Pakistani Earrings">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-pk-11-name" class="font-semibold text-lg text-mint-dark">Pakistani Earrings</h3>
+                        <p data-template-id="product-pk-11-info" class="text-sm text-gray-600 mt-1">Elegant earrings for Independence Day</p>
+                        <p data-template-id="product-pk-11-price" class="font-bold text-mint-brand text-lg mt-2">Rs:100 <span class="text-sm font-normal text-gray-500 line-through ml-2">Rs:120</span></p>
+                    </div>
+                </div>
+                <!-- Product Card PK-12 -->
+                <div data-template-id="product-pk-12" data-category="independence-day" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-pk-12-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="2handband.png" alt="Pakistan Flag Hand Band">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-pk-12-name" class="font-semibold text-lg text-mint-dark">Pakistan Flag Hand Band</h3>
+                        <p data-template-id="product-pk-12-info" class="text-sm text-gray-600 mt-1">Show your spirit with this festive hand band.</p>
+                        <p data-template-id="product-pk-12-price" class="font-bold text-mint-brand text-lg mt-2">Rs:100 <span class="text-sm font-normal text-gray-500 line-through ml-2">Rs:120</span></p>
+                    </div>
+                </div>
+                <!-- Product Card PK-13 -->
+                <div data-template-id="product-pk-13" data-category="independence-day" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-pk-13-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="flag small.png" alt="Small Pakistan Flag">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-pk-13-name" class="font-semibold text-lg text-mint-dark">Small Pakistan Flag</h3>
+                        <p data-template-id="product-pk-13-info" class="text-sm text-gray-600 mt-1">A small flag, perfect for decorations or waving.</p>
+                        <p data-template-id="product-pk-13-price" class="font-bold text-mint-brand text-lg mt-2">Rs:250 <span class="text-sm font-normal text-gray-500 line-through ml-2">Rs:300</span></p>
+                    </div>
+                </div>
+                <!-- Product Card PK-14 -->
+                <div data-template-id="product-pk-14" data-category="independence-day" class="canva-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img data-template-id="product-pk-14-img" class="canva-image w-full h-64 object-cover" loading="lazy" src="hand band 100rs .png" alt="Patriotic Hand Band">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button class="text-white bg-coral py-2 px-4 rounded-full font-semibold quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 data-template-id="product-pk-14-name" class="font-semibold text-lg text-mint-dark">Patriotic Hand Band</h3>
+                        <p data-template-id="product-pk-14-info" class="text-sm text-gray-600 mt-1">Celebrate with this festive hand band.</p>
+                        <p data-template-id="product-pk-14-price" class="font-bold text-mint-brand text-lg mt-2">Rs:100 <span class="text-sm font-normal text-gray-500 line-through ml-2">Rs:130</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer data-template-id="footer-section" class="canva-footer w-full mt-12 py-10 px-6 bg-mint">
+        <div class="max-w-7xl mx-auto text-center space-y-2">
+            <h3 data-template-id="footer-brand" class="canva-text heading-font text-xl font-bold text-mint-dark">Kids City</h3>
+            <p data-template-id="footer-phone" class="canva-text text-gray-700">📞 <a href="tel:03452781031" class="text-gray-700 hover:text-mint-brand transition-colors">03452781031</a></p>
+            <p data-template-id="footer-email" class="canva-text text-gray-700">✉️ <a href="mailto:foziamudassir1@gmail.com" class="text-gray-700 hover:text-mint-brand transition-colors">foziamudassir1@gmail.com</a></p>
+            <p data-template-id="footer-address" class="canva-text text-gray-700 text-sm max-w-md mx-auto">📍 <a href="https://www.google.com/maps/search/?api=1&query=Kids+City%2C+Shop+%23A-81%2C+Lakhani+Shopping+Mall%2C+Block+13%2C+Gulistan-e-Johar%2C+Karachi" target="_blank" rel="noopener noreferrer" class="hover:text-mint-brand transition-colors">Kids City, Shop #A-81, Lakhani Shopping Mall, Block 13, Gulistan-e-Johar, Karachi. Opposite Rabia City, near Habib University.</a></p>
+            <p data-template-id="footer-copy" class="canva-text mt-4 text-sm opacity-70 text-gray-600">© 2026 Kids City. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Quick View Modal -->
+    <div id="quick-view-modal" class="fixed inset-0 bg-black bg-opacity-60 z-50 hidden items-center justify-center p-4">
+        <div id="modal-content" class="bg-white rounded-2xl shadow-xl w-full max-w-3xl p-6 relative transform transition-all duration-300 scale-95 opacity-0">
+            <button id="modal-close-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 z-10">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <div class="grid md:grid-cols-2 gap-6">
+                <img id="modal-img" src="" alt="Product Image" class="w-full h-auto object-cover rounded-lg">
+                <div class="flex flex-col justify-center">
+                    <h3 id="modal-name" class="text-3xl font-bold heading-font text-mint-dark"></h3>
+                    <p id="modal-price" class="text-2xl font-bold text-mint-brand my-3"></p>
+                    <p id="modal-info" class="text-gray-600"></p><button id="modal-add-to-cart-btn" class="mt-6 w-full bg-coral text-white py-3 px-4 rounded-full font-semibold hover:bg-opacity-90 transition-colors">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            let currentProduct = {};
+
+            // --- Persistent Cart Logic ---
+            function saveCart(items) {
+                localStorage.setItem('shoppingCart', JSON.stringify(items));
+            }
+
+            function loadCart() {
+                const storedCart = localStorage.getItem('shoppingCart');
+                return storedCart ? JSON.parse(storedCart) : [];
+            }
+            let cartItems = loadCart();
+
+            // --- Re-usable Cart & Modal Logic ---
+
+            // Quick View button functionality
+            const quickViewBtns = document.querySelectorAll('.quick-view-btn');
+            quickViewBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevents the parent card's click animation
+
+                    // Find the parent product card
+                    const productCard = e.target.closest('.canva-card');
+
+                    // Get product data from the card
+                    const productName = productCard.querySelector('[data-template-id*="-name"]').textContent;
+                    const salePriceEl = productCard.querySelector('[data-template-id*="-price"]');
+                    const productPrice = salePriceEl.textContent;
+                    const productInfo = productCard.querySelector('[data-template-id*="-info"]').textContent;
+                    const productImgSrc = productCard.querySelector('[data-template-id*="-img"]').src;
+
+                    // Use the product card's data-template-id as a unique ID
+                    currentProduct = {
+                        id: productCard.dataset.templateId,
+                        name: productName,
+                        price: productPrice,
+                        info: productInfo,
+                        imgSrc: productImgSrc
+                    };
+                    // Populate and show the modal
+                    openModal(currentProduct);
+                });
+            });
+
+            const modal = document.getElementById('quick-view-modal');
+            const modalContent = document.getElementById('modal-content');
+            const closeBtn = document.getElementById('modal-close-btn');
+            const addToCartBtn = document.getElementById('modal-add-to-cart-btn');
+            const cartIconBtn = document.getElementById('cart-icon-btn');
+            const cartDropdown = document.getElementById('cart-dropdown');
+            const cartItemsContainer = document.getElementById('cart-items-container');
+            const cartSubtotalEl = document.getElementById('cart-subtotal');
+            const cartBadge = document.getElementById('cart-badge');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
+
+            function openMobileMenu() {
+                mobileMenuOverlay.classList.remove('hidden');
+                document.body.classList.add('modal-open'); // Reuse class to prevent scrolling
+            }
+
+            function closeMobileMenu() {
+                mobileMenuOverlay.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+            }
+
+            if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+            if (mobileMenuCloseBtn) mobileMenuCloseBtn.addEventListener('click', closeMobileMenu);
+
+            function openModal(product) {
+                document.getElementById('modal-name').textContent = product.name;
+                document.getElementById('modal-price').textContent = product.price;
+                document.getElementById('modal-info').textContent = product.info;
+                document.getElementById('modal-img').src = product.imgSrc;
+                modal.classList.remove('hidden');
+                document.body.classList.add('modal-open');
+                setTimeout(() => {
+                    modalContent.classList.remove('scale-95', 'opacity-0');
+                }, 50); // For transition
+            }
+
+            function closeModal() {
+                modalContent.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    document.body.classList.remove('modal-open');
+                }, 300); // Match transition duration
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            }); // Close if clicking on overlay
+
+            function updateCart() {
+                const clearCartBtn = document.getElementById('clear-cart-btn');
+                // Update badge to show total quantity of items
+                const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+                cartBadge.textContent = totalItems;
+                cartBadge.classList.toggle('hidden', totalItems === 0);
+
+                // Update dropdown items
+                cartItemsContainer.innerHTML = '';
+                // Show/hide Clear All button
+                if(clearCartBtn) clearCartBtn.classList.toggle('hidden', cartItems.length === 0);
+
+                if (cartItems.length === 0) {
+                    cartItemsContainer.innerHTML = '<p class="text-gray-500 text-center py-4">Your cart is empty.</p>';
+                } else {
+                    cartItems.forEach((item, index) => {
+                        const itemEl = document.createElement('div');
+                        itemEl.className = 'flex items-center justify-between py-3';
+                        itemEl.innerHTML = `
+              <div class="flex items-center">
+                <img src="${item.imgSrc}" alt="${item.name}" class="w-12 h-12 object-cover rounded-md mr-3">
+                <div class="flex-grow">
+                  <p class="font-semibold text-sm text-mint-dark">${item.name}</p>
+                  <p class="text-xs text-gray-500">${item.price}</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <button class="quantity-btn" data-id="${item.id}" data-action="decrease" title="Decrease quantity">
+                  <i data-lucide="minus-circle" class="w-5 h-5 text-gray-400 hover:text-mint-brand"></i>
+                </button>
+                <span class="font-semibold text-sm w-4 text-center">${item.quantity}</span>
+                <button class="quantity-btn" data-id="${item.id}" data-action="increase" title="Increase quantity">
+                  <i data-lucide="plus-circle" class="w-5 h-5 text-gray-400 hover:text-mint-brand"></i>
+                </button>
+              </div>
+            `;
+                        cartItemsContainer.appendChild(itemEl);
+                    });
+                    // Re-render icons after adding them to the DOM
+                    lucide.createIcons();
+                }
+
+                // Update subtotal
+                const subtotal = cartItems.reduce((total, item) => {
+                    const price = parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0;
+                    return total + (price * item.quantity);
+                }, 0);
+                cartSubtotalEl.textContent = `Rs:${subtotal.toFixed(2)}`;
+            }
+
+            // Add event listener for removing items from cart
+            cartItemsContainer.addEventListener('click', (e) => {
+                const removeBtn = e.target.closest('.remove-item-btn');
+                if (removeBtn) {
+                    const itemIndex = parseInt(removeBtn.dataset.index, 10);
+                    cartItems.splice(itemIndex, 1);
+                    saveCart(cartItems);
+                    updateCart();
+                }
+
+                const quantityBtn = e.target.closest('.quantity-btn');
+                if (quantityBtn) {
+                    const itemId = quantityBtn.dataset.id;
+                    const action = quantityBtn.dataset.action;
+                    const itemIndex = cartItems.findIndex(item => item.id === itemId);
+
+                    if (itemIndex > -1) {
+                        if (action === 'increase') {
+                            cartItems[itemIndex].quantity++;
+                        } else if (action === 'decrease') {
+                            cartItems[itemIndex].quantity--;
+                            if (cartItems[itemIndex].quantity <= 0) {
+                                cartItems.splice(itemIndex, 1); // Remove item if quantity is 0 or less
+                            }
+                        }
+                        saveCart(cartItems);
+                        updateCart();
+                    }
+                }
+            });
+
+            // Add event listener for clearing the cart
+            const clearCartBtn = document.getElementById('clear-cart-btn');
+            if (clearCartBtn) {
+                clearCartBtn.addEventListener('click', () => {
+                    cartItems = []; // Empty the array
+                    saveCart(cartItems); // Update localStorage
+                    updateCart(); // Refresh the UI
+                });
+            }
+
+            addToCartBtn.addEventListener('click', () => {
+                const existingItem = cartItems.find(item => item.id === currentProduct.id);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cartItems.push({ ...currentProduct, quantity: 1 });
+                }
+                saveCart(cartItems);
+                updateCart();
+                closeModal();
+            });
+
+            cartIconBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                cartDropdown.classList.toggle('hidden');
+            });
+
+            // Close cart dropdown if clicking outside
+            document.addEventListener('click', (e) => {
+                const cartContainer = document.getElementById('cart-container');
+                if (cartContainer && !cartContainer.contains(e.target)) {
+                    cartDropdown.classList.add('hidden');
+                }
+            });
+
+            // Initial cart update on page load
+            updateCart();
+        });
+    </script>
+</body>
+
+</html>
